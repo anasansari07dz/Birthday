@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday NITYA 🎂</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    font-family:Georgia, "Times New Roman", serif;
+    background:
+        radial-gradient(circle at top,#fff4f7,#f7dce8 45%,#2b1727);
+    color:#422235;
+    overflow-x:hidden;
+}
+
+/* Opening Screen */
+.opening{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+}
+
+.open-card{
+    width:100%;
+    max-width:600px;
+    padding:45px 25px;
+    text-align:center;
+    border-radius:30px;
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(15px);
+    box-shadow:0 25px 70px rgba(55,20,40,.25);
+    border:1px solid rgba(255,255,255,.8);
+}
+
+.flower-top{
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+.small-title{
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-size:12px;
+    color:#9b617b;
+}
+
+.open-card h1{
+    font-size:clamp(48px,13vw,82px);
+    color:#682f50;
+    margin:12px 0;
+}
+
+.open-card p{
+    font-size:18px;
+    line-height:1.7;
+    color:#795568;
+    margin-bottom:25px;
+}
+
+.open-btn{
+    border:none;
+    padding:16px 28px;
+    border-radius:50px;
+    background:#713855;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 12px 30px rgba(113,56,85,.3);
+    transition:.3s;
+}
+
+.open-btn:hover{
+    transform:translateY(-3px);
+}
+
+/* Birthday Letter */
+.letter{
+    display:none;
+    min-height:100vh;
+    padding:25px 12px 50px;
+    animation:fadeUp 1s ease;
+}
+
+.letter-container{
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    position:relative;
+    padding:30px 20px 45px;
+    border-radius:28px;
+
+    background:
+        linear-gradient(rgba(255,250,246,.96),rgba(255,245,248,.96));
+
+    box-shadow:
+        0 25px 80px rgba(45,15,35,.35);
+
+    border:3px solid #d8a4b8;
+}
+
+/* Floral Border */
+.flower{
+    position:absolute;
+    font-size:30px;
+}
+
+.f1{top:8px;left:10px}
+.f2{top:8px;right:10px}
+.f3{bottom:8px;left:10px}
+.f4{bottom:8px;right:10px}
+
+.heading{
+    text-align:center;
+    padding:10px 10px 25px;
+}
+
+.heading h2{
+    font-size:clamp(40px,10vw,70px);
+    color:#66304e;
+    font-style:italic;
+}
+
+.heading h3{
+    font-size:clamp(28px,7vw,45px);
+    color:#9c4d72;
+    margin-top:8px;
+    letter-spacing:3px;
+}
+
+.heading p{
+    color:#9a667c;
+    margin-top:8px;
+}
+
+/* Photos */
+.photos{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin:10px 0 30px;
+}
+
+.photo{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    border-radius:18px;
+    border:7px solid white;
+    box-shadow:0 8px 25px rgba(60,25,45,.18);
+    transition:.3s;
+}
+
+.photo:hover{
+    transform:rotate(1deg) scale(1.02);
+}
+
+/*
+=====================================================
+PHOTO SETUP
+=====================================================
+
+Because this is ONE HTML file, you can use online
+image URLs here.
+
+Replace these three URLs with your own image URLs:
+
+photo1.jpg
+photo2.jpg
+photo3.jpg
+
+Example:
+src="https://your-image-host.com/photo1.jpg"
+
+=====================================================
+*/
+
+.message{
+    max-width:750px;
+    margin:auto;
+    padding:25px 20px;
+
+    background:rgba(255,255,255,.65);
+
+    border-radius:22px;
+
+    border-left:4px solid #c77d9b;
+    border-right:4px solid #c77d9b;
+
+    color:#503344;
+    font-size:18px;
+    line-height:1.8;
+}
+
+.message p{
+    margin-bottom:18px;
+}
+
+.center{
+    text-align:center;
+}
+
+.final{
+    margin-top:25px;
+    text-align:center;
+    font-size:24px;
+    color:#773650;
+    font-weight:bold;
+}
+
+.footer{
+    text-align:center;
+    margin-top:25px;
+    color:#9b687e;
+    font-style:italic;
+}
+
+/* Falling Flowers */
+.falling{
+    position:fixed;
+    top:-30px;
+    pointer-events:none;
+    z-index:9999;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-40px) rotate(0deg);
+    }
+
+    to{
+        transform:translateY(110vh) rotate(540deg);
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Mobile */
+@media(max-width:650px){
+
+    .letter{
+        padding:12px 8px 35px;
+    }
+
+    .letter-container{
+        padding:25px 12px 35px;
+        border-radius:22px;
+    }
+
+    .photos{
+        grid-template-columns:1fr;
+    }
+
+    .photo{
+        height:auto;
+        max-height:500px;
+    }
+
+    .message{
+        font-size:16px;
+        line-height:1.75;
+        padding:20px 15px;
+    }
+
+    .flower{
+        font-size:25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============================= -->
+<!-- OPENING SCREEN -->
+<!-- ============================= -->
+
+<section class="opening" id="opening">
+
+    <div class="open-card">
+
+        <div class="flower-top">
+            🌸 ✨ 🌷
+        </div>
+
+        <div class="small-title">
+            A little surprise for you
+        </div>
+
+        <h1>NITYA</h1>
+
+        <p>
+            Someone made something special<br>
+            just for your birthday. 💌
+        </p>
+
+        <button class="open-btn" onclick="openLetter()">
+            Open Your Birthday Letter 💗
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ============================= -->
+<!-- BIRTHDAY LETTER -->
+<!-- ============================= -->
+
+<section class="letter" id="letter">
+
+    <div class="letter-container">
+
+        <!-- Floral Border -->
+
+        <div class="flower f1">🌸</div>
+        <div class="flower f2">🌷</div>
+        <div class="flower f3">🌼</div>
+        <div class="flower f4">🌸</div>
+
+
+        <!-- Heading -->
+
+        <div class="heading">
+
+            <div style="font-size:25px;">
+                ✨ 🌸 ✨
+            </div>
+
+            <h2>Happy Birthday</h2>
+
+            <h3>NITYA</h3>
+
+            <p>
+                To someone truly special ❤️
+            </p>
+
+        </div>
+
+
+        <!-- ============================= -->
+        <!-- PHOTOS -->
+        <!-- ============================= -->
+
+        <div class="photos">
+
+            <!-- PHOTO 1 -->
+            <img
+                class="photo"
+                src="YOUR_PHOTO_1_URL_HERE"
+                alt="Nitya Photo 1"
+            >
+
+            <!-- PHOTO 2 -->
+            <img
+                class="photo"
+                src="YOUR_PHOTO_2_URL_HERE"
+                alt="Nitya Photo 2"
+            >
+
+            <!-- PHOTO 3 -->
+            <img
+                class="photo"
+                src="YOUR_PHOTO_3_URL_HERE"
+                alt="Nitya Photo 3"
+            >
+
+        </div>
+
+
+        <!-- ============================= -->
+        <!-- BIRTHDAY MESSAGE -->
+        <!-- ============================= -->
+
+        <div class="message">
+
+            <p>
+                <b>Happy Birthday to someone truly special! 🎂✨</b>
+            </p>
+
+            <p>
+                Some people come into our lives and, without even
+                realizing it, make ordinary moments a little more
+                beautiful. You are one of those people. 🌸
+            </p>
+
+            <p>
+                On your special day, I just want to wish you endless
+                happiness, peaceful days, beautiful memories and all
+                the success you deserve. May every dream you have
+                slowly turn into reality. ✨
+            </p>
+
+            <p>
+                I hope life always gives you reasons to smile,
+                people who genuinely care about you, and moments
+                that you will remember forever. ❤️
+            </p>
+
+            <p>
+                Never stop being the person you are. Keep smiling,
+                keep shining, and keep being the beautiful soul
+                that makes you, you. 💫
+            </p>
+
+            <p>
+                And whenever life gets a little difficult, I hope
+                you remember that there are people who genuinely
+                wish the best for you.
+            </p>
+
+            <p>
+                So today, forget everything else and just enjoy
+                your day. 🎈
+                <br>
+                You deserve all the happiness in the world.
+            </p>
+
+            <p class="center">
+                <b>
+                    Happy Birthday once again! 🎉🎂❤️
+                </b>
+            </p>
+
+            <p>
+                May this new chapter of your life be your most
+                beautiful one yet. ✨
+            </p>
+
+        </div>
+
+
+        <div class="final">
+            Stay Happy • Stay Beautiful • Stay You 🌸
+        </div>
+
+        <div class="footer">
+            Made with lots of good wishes, just for you. 💗
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* ==========================================
+   OPEN LETTER
+========================================== */
+
+function openLetter(){
+
+    document.getElementById("opening").style.display="none";
+
+    document.getElementById("letter").style.display="block";
+
+    createFlowers();
+
+}
+
+
+/* ==========================================
+   FALLING FLOWERS / HEARTS
+========================================== */
+
+function createFlowers(){
+
+    const symbols = [
+        "🌸",
+        "🌷",
+        "🌼",
+        "🌺",
+        "💗",
+        "✨",
+        "💕",
+        "🎀"
+    ];
+
+    for(let i=0;i<45;i++){
+
+        const flower=document.createElement("div");
+
+        flower.className="falling";
+
+        flower.innerHTML=
+            symbols[Math.floor(Math.random()*symbols.length)];
+
+        flower.style.left=
+            Math.random()*100+"vw";
+
+        flower.style.fontSize=
+            (16+Math.random()*18)+"px";
+
+        flower.style.animationDuration=
+            (3+Math.random()*4)+"s";
+
+        flower.style.animationDelay=
+            Math.random()*2+"s";
+
+        document.body.appendChild(flower);
+
+        setTimeout(()=>{
+            flower.remove();
+        },8000);
+    }
+}
+
+</script>
+
+</body>
+  </html>
